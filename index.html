@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Roeya 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4e1);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* INTRO CENTERED */
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ff9aa2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#intro h1 {
+    font-size: 2.4rem;
+}
+
+#intro button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* MAIN FULL CENTER */
+#main {
+    display: none;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* vertical center */
+    align-items: center;       /* horizontal center */
+    text-align: center;
+    padding: 20px;
+}
+
+/* TITLE BIGGER */
+#main h1 {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+}
+
+/* BUTTONS */
+button {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    width: 80%;
+    max-width: 300px;
+}
+
+/* TEXT SECTIONS BIG + CENTERED */
+.section {
+    display: none;
+    max-width: 90%;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+/* IMAGE SAFE FOR PHONE */
+img {
+    width: 250px;
+    max-width: 90%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px pink;
+}
+
+/* HEARTS */
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh);}
+    100% {transform: translateY(-10vh);}
+}
+
+/* MOBILE EXTRA BOOST */
+@media (max-width: 600px) {
+    #main h1 {
+        font-size: 2rem;
+    }
+
+    .section {
+        font-size: 1.4rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+    <h1>💖 I made something for you 💖</h1>
+    <button onclick="startSite()">Open 🎁</button>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+    <h1>Happy Birthday Roeya 🎂💖</h1>
+
+    <button onclick="showSection('msg')">🎁 Gift 1</button>
+    <button onclick="showSection('flowers')">🌸 Gift 2</button>
+    <button onclick="showSection('photo')">🖼️ Gift 3</button>
+
+    <!-- MESSAGE -->
+    <div id="msg" class="section">
+        💌 happy birthay to the prettiest girl i've ever seen, ever known and the coolest girl 😄<br><br>
+        i wish you the best day ever my dear roeya 💖<br>
+        from sidi yahya ✨
+    </div>
+
+    <!-- FLOWERS -->
+    <div id="flowers" class="section">
+        🌸🌸🌸🌸🌸🌸🌸<br><br>
+        these flowers are for you 🌷💐<br>
+        i wish i could give them to you in real life,<br>
+        but we're still young so we can't meet...<br>
+        i hope you stay happy always 💖✨
+    </div>
+
+    <!-- PHOTO -->
+    <div id="photo" class="section">
+        <img src="photo.jpg"><br><br>
+        💖 you are one of the most beautiful and special people i've ever known 💖
+    </div>
+</div>
+
+<script>
+function startSite() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("main").style.display = "flex";
+}
+
+function showSection(id) {
+    let sections = document.querySelectorAll(".section");
+    sections.forEach(sec => sec.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+
+/* floating hearts */
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "100vh";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}, 400);
+</script>
+
+</body>
+</html>
